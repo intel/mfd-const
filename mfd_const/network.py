@@ -28,6 +28,7 @@ class Family(Enum):
     CPK_SMBM = auto()
     CVL = auto()
     CNV = auto()
+    GNRD = auto()
     MEV = auto()
     NNTQ = auto()
     HVL = auto()
@@ -43,9 +44,12 @@ class Family(Enum):
 family_to_full_name = InternalDict(
     {
         Family.CVL: "Columbiaville",
+        Family.CPK: "Columbiapark",
         Family.FVL: "Fortville",
+        Family.FPK: "Fortpark",
         Family.CNV: "Connorsville",
         Family.LKV: "Linkville",
+        Family.GNRD: "Granite Rapids",
     }
 )
 
@@ -248,6 +252,10 @@ DEVICE_IDS = {
         "0x12D9",
         "0xF0A8",
     ],
+    Family.GNRD.name: [
+        "0x579C",
+        "0x579D",
+    ],
     Family.MEV.name: MEV_IDs,
     Family.NNTQ.name: ["0x1558"],
     Family.HVL.name: [
@@ -429,7 +437,7 @@ SPEED_IDS = {
     + DEVICE_IDS[Family.CVL.name]
     + DEVICE_IDS[Family.CNV.name]
     + DEVICE_IDS[Speed.VF_G100.value],
-    Speed.G200.value: DEVICE_IDS[Family.MEV.name],
+    Speed.G200.value: DEVICE_IDS[Family.MEV.name] + DEVICE_IDS[Family.GNRD.name],
 }
 
 FREEBSD_ADVERTISE_SPEED = {
@@ -639,7 +647,7 @@ DEVID_CLASS_MAP_NICINSTALLER = {
     ),
     "100G_CPK_SMBM": (DeviceID(0x188F), DeviceID(0x1895), DeviceID(0x0DCD)),
     "100G_VF": (DeviceID(0x18ED), DeviceID(0x1889), DeviceID(0x0DBD)),
-    "200G": (DeviceID(0xF002), DeviceID(0xF00C), DeviceID(0x1452)),
+    "200G": (DeviceID(0xF002), DeviceID(0xF00C), DeviceID(0x1452), DeviceID(0x579C), DeviceID(0x579D)),
 }
 
 DRIVER_DIRECTORY_MAP = {
@@ -662,6 +670,7 @@ DRIVER_DIRECTORY_MAP = {
     "ixl": "PRO40GB",
     "ixv": "PROXGB",
     "scea": "PROCCGB",
+    "sceb": "PROCCGB",
     "v1q": "PRO1000",
     "vx": "PROXGB",
 }
@@ -947,6 +956,10 @@ WINDOWS_DRIVER_DEVICE_ID_MAP = {
         DeviceID(0x579F),
         DeviceID(0xF0A5),
         DeviceID(0xF0A6),
+    },
+    "sceb": {
+        DeviceID(0x579C),
+        DeviceID(0x579D),
     },
 }
 
