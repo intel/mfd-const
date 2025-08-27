@@ -2,6 +2,8 @@ name: CI Build - Release Mode
 
 on:
   workflow_dispatch:
+    branches:
+    - main
 
 jobs:
   build_upload_whl:
