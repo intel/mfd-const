@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.25.0 (2025-10-27)
+
+### Features
+
+- Add E835 device IDs for backplane, QSFP, and SFP controllers
+  ([`0b8d7b8`](https://github.com/intel/mfd-const/commit/0b8d7b86392cfae2c8191c9b69aab2e64c4da191))
+
+
 ## v0.24.0 (2025-08-29)
 
 ### Continuous Integration
