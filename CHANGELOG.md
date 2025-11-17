@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.25.1 (2025-11-17)
+
+### Bug Fixes
+
+- Move GNR-D device ID's to Family.GNRD from Family.CPK
+  ([`c30d93e`](https://github.com/intel/mfd-const/commit/c30d93e156222e7c53ac877c2c9032d418bdc535))
+
+
 ## v0.25.0 (2025-10-27)
 
 ### Features
