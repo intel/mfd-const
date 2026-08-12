@@ -30,6 +30,7 @@ class Family(Enum):
     CNV = auto()
     GNRD = auto()
     MEV = auto()
+    MMG = auto()
     NNTQ = auto()
     HVL = auto()
     MPK = auto()
@@ -70,6 +71,7 @@ class Speed(Enum):
     G40 = "@40G"
     G100 = "@100G"
     G200 = "@200G"
+    G400 = "@400G"
 
     def __hash__(self) -> int:
         """Return hash representation."""
@@ -281,6 +283,10 @@ DEVICE_IDS = {
         "0x15E4",
         "0x15E5",
     ],
+    Family.MMG.name: [
+        "0x011E",
+        "0x11DF",
+    ],
     Family.MPK.name: [
         "0x15A7",
         "0x15AA",
@@ -451,6 +457,7 @@ SPEED_IDS = {
     + DEVICE_IDS[Family.CNV.name]
     + DEVICE_IDS[Speed.VF_G100.value],
     Speed.G200.value: DEVICE_IDS[Family.MEV.name] + DEVICE_IDS[Family.GNRD.name],
+    Speed.G400.value: DEVICE_IDS[Family.MMG.name],
 }
 
 FREEBSD_ADVERTISE_SPEED = {
@@ -666,7 +673,17 @@ DEVID_CLASS_MAP_NICINSTALLER = {
     ),
     "100G_CPK_SMBM": (DeviceID(0x188F), DeviceID(0x1895), DeviceID(0x0DCD)),
     "100G_VF": (DeviceID(0x18ED), DeviceID(0x1889), DeviceID(0x0DBD)),
-    "200G": (DeviceID(0xF002), DeviceID(0xF00C), DeviceID(0x1452), DeviceID(0x579C), DeviceID(0x579D)),
+    "200G": (
+        DeviceID(0xF002),
+        DeviceID(0xF00C),
+        DeviceID(0x1452),
+        DeviceID(0x579C),
+        DeviceID(0x579D),
+    ),
+    "400G": (
+        DeviceID(0x11DF),
+        DeviceID(0x011E),
+    ),
 }
 
 DRIVER_DIRECTORY_MAP = {
@@ -947,7 +964,14 @@ DRIVER_DEVICE_ID_MAP = {
         DeviceID(0xF0A6),
         DeviceID(0xF0A8),
     },  # CPK part on Windows scea
-    "idpf": {DeviceID(0xF002), DeviceID(0xF00C), DeviceID(0x1452), DeviceID(0x145C)},
+    "idpf": {
+        DeviceID(0xF002),
+        DeviceID(0xF00C),
+        DeviceID(0x1452),
+        DeviceID(0x145C),
+        DeviceID(0x11DF),
+        DeviceID(0x011E),
+    },
     "iavf": {
         DeviceID(0x154C),
         DeviceID(0x1571),
