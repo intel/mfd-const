@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.27.0 (2026-11-23)
+
+### Features
+
+- Added MMG (MountMorgan) support to network.py
+  ([`05fd4d4`](https://github.com/intel/mfd-const/commit/05fd4d4adfe80d3660df90c4c00462356d7380b9))
+
+
 ## v0.26.0 (2026-07-31)
 
 ### Chores
